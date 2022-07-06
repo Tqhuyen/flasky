@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask import request
 from flask import current_app
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 @app.route('/')
@@ -17,6 +18,28 @@ def facebook():
 @app.route('/<user>')
 def user(user):
     return render_template('user.html', user=user)
+# ------------------------------------------------Market App--------------------------------------------
+
+@app.route('/home')
+def home_page():
+    return render_template('home.html')
+
+@app.route('/market')
+def market_page():
+    items = [
+        {'id': 1, 'name': 'Phone', 'barcode': '893212299897', 'price': 500},
+        {'id': 2, 'name': 'Laptop', 'barcode': '123985473165', 'price': 900},
+        {'id': 3, 'name': 'Keyboard', 'barcode': '231985128446', 'price': 150}
+    ]
+    return render_template('market.html', item_name=items)
+@app.route('/login_page')
+def login():
+    return
+
+@app.route('/register_page')
+def register():
+    return
+
 # @app.route('/current app')
 # def current_app():
 #     # current_app_name = current_app.__name()
