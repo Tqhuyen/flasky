@@ -13,25 +13,24 @@ class Item(db.Model):
     barcode = db.Column(db.String(length=12), nullable=False, unique=True)
     description = db.Column(db.String(length=1024), nullable=False, unique=True)
 
+    
 @app.route('/')
-def index():
-    return "<h1>Thís is index page</h1>"
-
 @app.route('/client_in4')
 def client():
     user_agent = request.headers.get('User-Agent')
     return f"<h1>Your browser agent is {user_agent}</h1>"
 @app.route('/facebook')
 def facebook():
-    return render_template('index.html')
+    return render_template('flask_market/index.html')
 @app.route('/<user>')
 def user(user):
-    return render_template('user.html', user=user)
+    return render_template('flask_market/user.html', user=user)
+
 # ------------------------------------------------Market App--------------------------------------------
 
 @app.route('/home')
 def home_page():
-    return render_template('home.html')
+    return render_template('flask_market/home.html')
 
 @app.route('/market')
 def market_page():
@@ -40,7 +39,7 @@ def market_page():
         {'id': 2, 'name': 'Laptop', 'barcode': '123985473165', 'price': 900},
         {'id': 3, 'name': 'Keyboard', 'barcode': '231985128446', 'price': 150}
     ]
-    return render_template('market.html', item_name=items)
+    return render_template('flask_market/market.html', item_name=items)
 @app.route('/login_page')
 def login():
     return
@@ -49,11 +48,9 @@ def login():
 def register():
     return
 
-# @app.route('/current app')
-# def current_app():
-#     # current_app_name = current_app.__name()
-#     return f"<p>{current_app.__name__()}</p>"
 #---------------------------------------------Shoppe Fake-----------------------------------------
 @app.route('/shoppe')
 def shoppe_index():
-    return render_template('index_shoppe.html')
+    return render_template('shoppe_fake/index_shoppe.html')
+
+# --------------------------------------------Browser Infomation--------------------------------------
