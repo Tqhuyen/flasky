@@ -53,3 +53,7 @@ def register():
 # def current_app():
 #     # current_app_name = current_app.__name()
 #     return f"<p>{current_app.__name__()}</p>"
+#---------------------------------------------Shoppe Fake-----------------------------------------
+@app.route('/shoppe')
+def shoppe_index():
+    return render_template('index_shoppe.html')
