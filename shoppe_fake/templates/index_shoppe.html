@@ -14,7 +14,7 @@
     <div class="main">
         <header class="header">
             <div class="grid">
-                <nav class="navbar">
+                <nav class="navbar flex">
                     <ul class="nav-list">
                         <li class="nav-item nav-item-separate">Kênh người bán</li>
                         <li class="nav-item nav-item-separate">Tải ứng dụng</li>
@@ -38,17 +38,17 @@
                             </a>
                         </li>
                         <li class="nav-item nav-item-separate">Đăng ký</li>
-                        <li class="nav-item">Đăng nhập</li>
+                        <li class="nav-item"><a href="./login.html">Đăng nhập</a></li>
                     </ul>
                 </nav>
-                <div class="search">
-                    <a href="" class="logo">
+                <div class="search flex y-center">
+                    <a href="" class="logo flex x-center y-center">
                         <img class="logo-img" src="{{ url_for('static', filename='img/472289d65cad3b3e76ad7a269e4211ae.jpg') }}" alt="">
                         Shopee Storm
                     </a>
-                    <div class="search-bar">
-                        <input type="text" class="search-bar-input" placeholder="Tìm kiếm">
-                        <div class="search-button">
+                    <div class="search-bar flex y-center">
+                        <input type="text" class="search-bar-input y-center" placeholder="Tìm kiếm">
+                        <div class="search-button flex x-center y-center">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                     </div>
