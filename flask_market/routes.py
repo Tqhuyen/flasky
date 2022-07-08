@@ -2,6 +2,7 @@ from flask_market import app
 from flask import render_template
 from flask import request
 from flask_market.model import Item
+from flask_market.form import RegisterForm
 
 # ------------------------------------------------Market App--------------------------------------------
 
@@ -18,5 +19,6 @@ def login():
     return
 
 @app.route('/register_page')
-def register():
-    return
+def register_page():
+    form = RegisterForm()
+    return render_template('register.html', form=form)
