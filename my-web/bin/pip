@@ -1,4 +1,4 @@
-#!/home/tranquanghuyen/flasky/my-web/bin/python3
+#!/home/tranquanghuyen/Documents/github/flasky/my-web/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

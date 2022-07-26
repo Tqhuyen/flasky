@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask_market import app
+from flask_market import app, bcrypt
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 db = SQLAlchemy(app)
@@ -11,6 +11,14 @@ class User(db.Model):
     password_hash = db.Column(db.String(length=60), nullable=False)
     budget = db.Column(db.Integer(), nullable=False, default=0)
     items = db.relationship('Item', backref='owner_user', lazy=True)
+    
+    @property
+    def password(self):
+        return self.password
+
+    @password.setter
+    def password(self, plain_text_pass):
+        self.password_hash = bcrypt.generate_password_hash(plain_text_pass).decode('utf-8')
 
 class Item(db.Model):
     id = db.Column(db.Integer(), primary_key=True)

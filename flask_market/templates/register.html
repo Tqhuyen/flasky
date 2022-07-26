@@ -8,11 +8,13 @@
     <div class='container'>
         <h1>Please fill in register form</h1>
         <form class='form-register' method="POST" style="color:white">
+            {{ form.hidden_tag() }}
+
             {{ form.username.label() }}
             {{ form.username(class="form-control", placeholder="User Name") }}
             
-            {{ form.email_adress.label() }}
-            {{ form.email_adress(class="form-control", placeholder="abc@gmail.com") }}
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control", placeholder="abc@gmail.com") }}
             
             {{ form.password1.label() }}
             {{ form.password1(class="form-control", placeholder="password") }}
